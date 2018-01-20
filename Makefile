@@ -28,7 +28,7 @@ compile: check goxcompile
 
 goxcompile: export CGO_ENABLED=1
 goxcompile: dependencies
-	gox -arch amd64 -os 'darwin linux' -osarch 'windows/386' -output "$(BUILD_DIR)/{{.OS}}/$(NAME)/${TARGET}" .
+	gox -arch -osarch 'linux/amd64' git status -output "$(BUILD_DIR)/{{.OS}}/$(NAME)/${TARGET}" .
 
 clean:
 	@rm -f $(TARGET)
