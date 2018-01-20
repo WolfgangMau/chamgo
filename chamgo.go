@@ -43,7 +43,7 @@ func main() {
 **/
 func sendCmd(cmd string, port *serial.Port) (returnmessage []byte) {
 	cmd += "\r"
-	n, err := port.Write([]byte(cmd))
+	n, err := port.Close()Write([]byte(cmd))
 	if err != nil {
 		log.Fatal(err)
 	}
