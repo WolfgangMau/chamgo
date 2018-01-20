@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+//ui holds the userinput
 var ui = ""
 
 func main() {
@@ -21,14 +22,12 @@ func main() {
 	s, err := serial.OpenPort(c)
 	if err != nil {
 		log.Fatal(err)
+		os.Exit(2)
 	}
-
-	//for _, c := range Commands {
-	//log.Printf("%s", sendCmd(Commands[0], s))
-	//}
+	fmt.Println("chamgo - ready to talk to the chameleon")
 	for {
 		ui = getUserInput()
-		if ui == "exit" || ui == "quit" {
+		if ui == "exit" || ui == "quit" || ui == "q" {
 			os.Exit(0)
 		}
 
